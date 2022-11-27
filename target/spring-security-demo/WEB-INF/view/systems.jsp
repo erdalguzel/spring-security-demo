@@ -1,10 +1,10 @@
 <html>
 <head>
-    <title>Manager Page</title>
+    <title>Systems Page</title>
 </head>
 
 <body>
-<h2>Manager Page</h2>
+<h2>Systems Page</h2>
 
 <hr>
 <p>

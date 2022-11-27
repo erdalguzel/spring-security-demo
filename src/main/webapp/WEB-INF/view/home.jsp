@@ -23,26 +23,28 @@ Welcome to the home page
 
 <hr>
 
-<hr>
-<p>
-    <a href="${pageContext.request.contextPath}/managers">Management meeting</a>
-    (Only for managers. Karens cannot join this meeting)
-</p>
-<hr>
-
-
-<hr>
-<p>
-    <a href="${pageContext.request.contextPath}/admin">IT Admin meeting</a>
-    (Only for IT folks. Karens cannot join this meeting)
-</p>
-<hr>
+<security:authorize access="hasRole('MANAGER')">
+    <p>
+        <a href="${pageContext.request.contextPath}/managers">Management meeting</a>
+        (Only for managers. Karens cannot join this meeting)
+    </p>
+</security:authorize>
 
 <hr>
-<p>
-    <a href="${pageContext.request.contextPath}/systems">IT Systems meeting</a>
-    (Only for IT folks. Karens cannot join this meeting)
-</p>
+
+<security:authorize access="hasRole('ADMIN')">
+    <p>
+        <a href="${pageContext.request.contextPath}/admin">IT Admin meeting</a>
+        (Only for IT folks. Karens cannot join this meeting)
+    </p>
+</security:authorize>
+
+<security:authorize access="hasRole('MANAGER')">
+    <p>
+        <a href="${pageContext.request.contextPath}/systems">IT Systems meeting</a>
+        (Only for IT folks. Karens cannot join this meeting)
+    </p>
+</security:authorize>
 <hr>
 
 <form:form action="${pageContext.request.contextPath}/logout"
